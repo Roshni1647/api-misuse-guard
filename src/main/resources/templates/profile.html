@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>User Profile</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow:
+                0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .role {
+            display: inline-block;
+            padding: 7px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px 18px;
+            background: #111827;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <h2>
+        Demo User Portal
+    </h2>
+
+</header>
+
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            Welcome,
+            <span th:text="${username}">
+                user
+            </span>
+        </h1>
+
+
+        <p>
+            Authenticated Role:
+        </p>
+
+        <span
+            class="role"
+            th:text="${role}">
+            USER
+        </span>
+
+
+        <h3>
+            User Profile
+        </h3>
+
+        <p>
+            This is a protected USER page.
+        </p>
+
+        <p>
+            The API Misuse Guard continues monitoring
+            requests made during this session.
+        </p>
+
+
+        <form
+            action="/logout"
+            method="post">
+
+            <button type="submit">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

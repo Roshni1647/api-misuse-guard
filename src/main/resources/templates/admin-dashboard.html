@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        header {
+            padding: 20px 40px;
+            background: #111827;
+            color: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow:
+                0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .role {
+            color: #991b1b;
+            background: #fee2e2;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            padding: 11px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            background: #111827;
+            color: white;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <h2>
+        Administration Portal
+    </h2>
+
+</header>
+
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            Welcome,
+            <span th:text="${username}">
+                admin
+            </span>
+        </h1>
+
+        <p>
+            Authenticated Role:
+        </p>
+
+        <span
+            class="role"
+            th:text="${role}">
+            ADMIN
+        </span>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>
+            Administrative Resources
+        </h2>
+
+        <a
+            href="/admin/users"
+            target="_blank">
+
+            View Admin Users API
+        </a>
+
+
+        <a
+            href="/security-dashboard"
+            target="_blank">
+
+            Open Security Monitor
+        </a>
+
+
+        <form
+            action="/logout"
+            method="post">
+
+            <button type="submit">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

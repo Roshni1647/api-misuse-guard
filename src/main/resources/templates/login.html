@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Secure Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            width: 420px;
+            background: white;
+            padding: 38px;
+            border-radius: 12px;
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .shield {
+            font-size: 35px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            margin-top: 17px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 13px;
+
+            border: none;
+
+            background: #111827;
+
+            color: white;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .error {
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            padding: 12px;
+
+            border-radius: 7px;
+
+            margin-top: 20px;
+        }
+
+        .demo-info {
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: #f9fafb;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .notice {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 18px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <div class="login-card">
+
+        <div class="shield">
+            🛡️
+        </div>
+
+        <h1>
+            Secure Login
+        </h1>
+
+        <p class="subtitle">
+            Protected by API Misuse Guard
+        </p>
+
+
+        <form
+            action="/login"
+            method="post">
+
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                autocomplete="username"
+                required>
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                autocomplete="current-password"
+                required>
+
+
+            <label>
+                Login Role
+            </label>
+
+            <select
+                name="requestedRole"
+                required>
+
+                <option value="USER">
+                    USER
+                </option>
+
+                <option value="ADMIN">
+                    ADMIN
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                LOGIN
+            </button>
+
+        </form>
+
+
+        <div
+            class="error"
+            th:if="${error}"
+            th:text="${error}">
+        </div>
+
+
+        <div class="demo-info">
+
+            <strong>
+                Local Demo Accounts
+            </strong>
+
+            <br><br>
+
+            USER<br>
+            Username: <b>user</b><br>
+            Password: <b>demo123</b>
+
+            <br><br>
+
+            ADMIN<br>
+            Username: <b>admin</b><br>
+            Password: <b>admin123</b>
+
+        </div>
+
+
+        <div class="notice">
+
+            Educational localhost demo.
+            Do not enter real credentials.
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
